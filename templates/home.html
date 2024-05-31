@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <p>{{ data.title }}</p> 
+    <p>{{ data.address }}</p>
+    
+    <p>Current User is: {{ current_user.name}}</p>
+    <p>Is User Authorized: {% if current_user.is_authenticated %}Yes{% else %}NOT AUTHORIZED! {% endif %}</p>
+    
+    <p>Todays Date & Time: {{ data.date_time }}</p><br>
+</div>
+{% endblock %}

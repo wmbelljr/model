@@ -1,0 +1,27 @@
+<div class="nav-container">
+    <div class="nav-items-container">
+        <div class="nav-item" onclick="window.location='/'">Home</div>
+        <div class="nav-item" onclick="window.location='/contact/'">Contact</div>            
+        <a class="nav-item" href="{{ url_for('posts.list') }}">Posts</a>
+        <div class="nav-item" onclick="window.location='/events/'">Calendar</div>
+        <div class="nav-item" onclick="window.location='/admin/users/'">Users</div>
+        <div class="nav-item" onclick="window.location='/pictures/'">Pictures</div>
+        <div class="nav-item" onclick="window.location='/videos/'">Videos</div>
+        <div class="nav-item" onclick="window.location='/materials/'">Materials</div>
+        <div class="nav-item" onclick="window.location='/leadership/'">Leadership</div>
+        <div class="nav-item" onclick="window.location='/giving/'">Giving</div>
+    <div class="nav-item" onclick="window.location='/help/'">Help</div>
+    </div>
+    <div class="login-container">
+        {% if current_user %}
+            {%  if current_user.is_authenticated %}
+                <div class="user-item" id="logout" onclick="window.location='/admin/logout/'">Logout</div>      
+                <div class="user-item" id="logout" onclick="window.location='/admin/edit/'">Profile</div>      
+            {%  else %}
+                <div class="user-item" id="login" onclick="window.location='/admin/login/'">Login</div>
+                <div class="user-item" id="register" onclick="window.location='/admin/register/'">Register</div>
+            {%  endif %}
+        {% endif %}
+    </div>
+</div>
+<!-- </div> -->

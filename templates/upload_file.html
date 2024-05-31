@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+    <br>
+    <form action = "/upload_file" method = "post" enctype="multipart/form-data">  
+        <input onclick='toggleUploadBtn();' type="file" name="file" id="file_name"/> <br>
+        <input type = "submit" value="Upload" id="upload_btn" hidden>  
+    </form> 
+    {% if message %}
+    <p>{{ message }}</p>
+    {% endif %} 
+{% if file %}
+    <img height=150px src="{{ file.name }}" alt=""><br>{{ file.name }}</img>
+{% endif %}
+{% endblock %}
+
+{% block script%}
+<script>
+function toggleUploadBtn() {
+    // const fileName = document.getElementById('file_name')
+    const submitBtn = document.getElementById('upload_btn')
+    submitBtn.style.display = 'block';
+}
+</script>
+{% endblock script %}
